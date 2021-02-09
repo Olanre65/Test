@@ -1,12 +1,7 @@
 package com.mytest.RestTest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.net.http.HttpHeaders;
-//import java.net.http.HttpHeaders;
-import java.util.Arrays;
 
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
@@ -16,10 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
 import com.mytest.RestTest.Model.Cake;
