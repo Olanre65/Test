@@ -6,9 +6,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -48,4 +50,22 @@ public class CakeController {
 		return ResponseEntity.created(location).build();
 
 	}
+	  @PutMapping(path="/cakes/{id}")
+	  public Cake updateCake(@RequestBody Cake cake , @PathVariable Long id) {
+		  return cakerepository.findById(id)
+	      .map(Cake -> {
+	          cake.setName(cake.getName());
+	          cake.setType(cake.getType());
+	          return cakerepository.save(cake);
+	        })
+	        .orElseGet(() -> {
+	          cake.setId(id);
+	          return cakerepository.save(cake);
+	        });
+		  
+	  }
+	  @DeleteMapping("/cakes/{id}")
+	  void deleteEmployee(@PathVariable Long id) {
+	    cakerepository.deleteById(id);
+	  }
 }
