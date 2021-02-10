@@ -28,7 +28,7 @@ public class CakeController {
 	
 	@GetMapping(path= "/cakes", produces = "application/json")
 	 public List <Cake> retrieveAllCakes(){
-		return cakerepository.findAll();
+		return cakerepository.findAll(); 
 	}
 
 	@GetMapping(path="/cakes/{id}",produces = "application/json")
